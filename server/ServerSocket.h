@@ -9,6 +9,7 @@
 
 
 class ServerSocket{
+public:
     ServerSocket(int port);
     ~ServerSocket();
     bool start();

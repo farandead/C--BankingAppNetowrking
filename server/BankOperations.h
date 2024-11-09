@@ -4,13 +4,21 @@
 #include <string>
 #include <vector>
 #include "FileHandler.h"
-
+#include "Protocol.h"
+struct Session {
+    std::string username;
+    UserRole role;
+    bool isAuthenticated = false;
+};
 class BankOperations {
 private:
     FileHandler &fileHandler;
+    Session session; 
 
 public:
     BankOperations(FileHandler &fileHandler);
+    bool authenticateUser(const std::string &username, const std::string &password, UserRole &role);
+    void logout();
     bool deposit(const std::string &username, double amount);
     bool withdraw(const std::string &username, double amount);
     double checkBalance(const std::string &username);
