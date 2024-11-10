@@ -5,9 +5,8 @@
 #include <vector>
 #include <experimental/optional>
 using std::experimental::optional;
+using std::experimental::nullopt;
 
-
-// Define types for request and response
 enum class RequestType {
     LOGIN,
     DEPOSIT,
@@ -26,29 +25,27 @@ enum class ResponseType {
     FAILURE
 };
 
-// Define user roles
+
 enum class UserRole {
     USER,
     MANAGER
 };
 
-// Structure for a response from the server
 struct Response {
-    ResponseType type;                      // Success or failure of the operation
-    std::string message;                    // Message detailing response
-    optional<double> balance;          // Account balance if applicable
-    std::vector<std::string> accounts;      // List of all accounts for managers
-    optional<std::string> account;     // Single account info (like username)
+    ResponseType type;                      
+    std::string message;                    
+    optional<double> balance = nullopt;          
+    std::vector<std::string> accounts;      
+    optional<std::string> account;    
 };
 
-// Structure for a request from the client
 struct Request {
-    RequestType type;                       // Type of the request
-    std::string username;                   // Username of the client
-    optional<std::string> password;    // Password for authentication
-    optional<std::string> targetUser;  // Target user for transfers or account operations
-    optional<double> amount;           // Amount for deposit, withdraw, transfer
-    optional<UserRole> role;           // Role of the user (e.g., USER or MANAGER)
+    RequestType type;                       
+    std::string username;                  
+    optional<std::string> password;    
+    optional<std::string> targetUser;  
+    optional<double> amount;           
+    optional<UserRole> role;           
 };
 
 #endif // PROTOCOL_H

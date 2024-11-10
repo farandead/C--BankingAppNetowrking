@@ -17,8 +17,8 @@ private:
 
 public:
     BankOperations(FileHandler &fileHandler);
-    bool authenticateUser(const std::string &username, const std::string &password, UserRole &role);
-    void logout();
+    bool createAccount(const std::string &username, const std::string &password, UserRole role);
+  
     bool deposit(const std::string &username, double amount);
     bool withdraw(const std::string &username, double amount);
     double checkBalance(const std::string &username);

@@ -64,6 +64,7 @@ SOCKET ServerSocket::acceptClient(){
         cerr<<"Accept failed with an error: "<<WSAGetLastError()<<endl;
         return INVALID_SOCKET;
     };
+    return clientSocket;
     
 };
 

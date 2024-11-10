@@ -3,8 +3,7 @@
 
 #include <string>
 #include <vector>
-
-enum UserRole { USER, MANAGER };
+#include <Protocol.h>
 
 class FileHandler {
 public:
@@ -15,6 +14,7 @@ public:
     std::string deleteAccount(const std::string &username, UserRole role);
     std::vector<std::string> viewAllAccounts(UserRole role);
     std::string viewAccount(const std::string &username, UserRole role);
+    bool sendLoginRequest(const std::string &username, const std::string &password);
 };
 
 #endif // FILEHANDLER_H
