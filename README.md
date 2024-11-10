@@ -1,12 +1,11 @@
 
 # Banking System with Networked Client-Server Architecture
 
-This project is a simple banking system implemented using a networked client-server architecture. It allows clients to perform basic banking operations such as logging in, depositing and withdrawing money, checking balances, and transferring funds. The server is implemented using sockets to manage client connections and communication, with session-based authentication to maintain user state during interactions.
+This project is a simple banking system implemented using a networked client-server architecture. It allows clients to perform basic banking operations such as depositing and withdrawing money, checking balances, and transferring funds. The server is implemented using sockets to manage client connections and communication.
 
 ### Features
 
 - **Client-Server Architecture**: Uses a TCP/IP socket connection to handle client requests and server responses.
-- **Session-Based Authentication**: Users log in once and maintain their session without re-authenticating for each action.
 - **Role-Based Access Control**: Differentiates between standard users and managers, allowing managers additional privileges such as viewing all accounts.
 - **Banking Operations**: Provides functionality for deposit, withdrawal, balance checks, transfers, and more.
 - **Enum-Based Request-Response Protocol**: Utilizes `RequestType` and `ResponseType` enums for structured and type-safe communication.
@@ -52,12 +51,12 @@ BankingSystem/
 ### Example Workflow
 
 1. **Start the Server**: The server listens on a specified port, awaiting client connections.
-2. **Client Login**: A client connects and sends a login request. The server authenticates and creates a session.
-3. **Banking Operations**: The client can perform various actions:
+
+2. **Banking Operations**: The client can perform various actions:
    - **Deposit/Withdraw**: Add or remove funds from their account.
    - **Transfer**: Move funds to another user’s account.
    - **Check Balance**: View their current account balance.
-4. **End Session**: When finished, the client logs out, and the server closes the connection.
+3. **End Session**: When finished, the client logs out, and the server closes the connection.
 
 ### Request and Response Protocol
 
